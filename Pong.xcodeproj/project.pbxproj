@@ -1,0 +1,258 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B01D635F17AC4FA90061EEC4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = B01D635E17AC4FA90061EEC4 /* main.c */; };
+		B01D636117AC4FA90061EEC4 /* Pong.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = B01D636017AC4FA90061EEC4 /* Pong.1 */; };
+		B01D636817AC63850061EEC4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01D636717AC63850061EEC4 /* Cocoa.framework */; };
+		B01D636A17AC638B0061EEC4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01D636917AC638B0061EEC4 /* OpenGL.framework */; };
+		B01D636C17AC63BD0061EEC4 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01D636B17AC63BD0061EEC4 /* SDL2.framework */; };
+		B01D636F17AD2FE50061EEC4 /* graphics.c in Sources */ = {isa = PBXBuildFile; fileRef = B01D636E17AD2FE50061EEC4 /* graphics.c */; };
+		B01D637217AD902C0061EEC4 /* sprite.c in Sources */ = {isa = PBXBuildFile; fileRef = B01D637117AD902C0061EEC4 /* sprite.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B01D635917AC4FA90061EEC4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				B01D636117AC4FA90061EEC4 /* Pong.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B001056017AEBE0A00D8442C /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		B01D635B17AC4FA90061EEC4 /* Pong */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Pong; sourceTree = BUILT_PRODUCTS_DIR; };
+		B01D635E17AC4FA90061EEC4 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		B01D636017AC4FA90061EEC4 /* Pong.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Pong.1; sourceTree = "<group>"; };
+		B01D636717AC63850061EEC4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		B01D636917AC638B0061EEC4 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		B01D636B17AC63BD0061EEC4 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
+		B01D636D17AD2FD60061EEC4 /* graphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = graphics.h; sourceTree = "<group>"; };
+		B01D636E17AD2FE50061EEC4 /* graphics.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = graphics.c; sourceTree = "<group>"; };
+		B01D637017AD8B2A0061EEC4 /* sprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sprite.h; sourceTree = "<group>"; };
+		B01D637117AD902C0061EEC4 /* sprite.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sprite.c; sourceTree = "<group>"; };
+		B01D637317AD90420061EEC4 /* math.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = math.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B01D635817AC4FA90061EEC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B01D636A17AC638B0061EEC4 /* OpenGL.framework in Frameworks */,
+				B01D636817AC63850061EEC4 /* Cocoa.framework in Frameworks */,
+				B01D636C17AC63BD0061EEC4 /* SDL2.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B01D635217AC4FA90061EEC4 = {
+			isa = PBXGroup;
+			children = (
+				B01D636B17AC63BD0061EEC4 /* SDL2.framework */,
+				B01D636917AC638B0061EEC4 /* OpenGL.framework */,
+				B01D636717AC63850061EEC4 /* Cocoa.framework */,
+				B01D635D17AC4FA90061EEC4 /* Pong */,
+				B01D635C17AC4FA90061EEC4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B01D635C17AC4FA90061EEC4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B01D635B17AC4FA90061EEC4 /* Pong */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B01D635D17AC4FA90061EEC4 /* Pong */ = {
+			isa = PBXGroup;
+			children = (
+				B01D635E17AC4FA90061EEC4 /* main.c */,
+				B01D636D17AD2FD60061EEC4 /* graphics.h */,
+				B01D636E17AD2FE50061EEC4 /* graphics.c */,
+				B001056017AEBE0A00D8442C /* common.h */,
+				B01D637017AD8B2A0061EEC4 /* sprite.h */,
+				B01D637117AD902C0061EEC4 /* sprite.c */,
+				B01D636017AC4FA90061EEC4 /* Pong.1 */,
+				B01D637317AD90420061EEC4 /* math.h */,
+			);
+			path = Pong;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B01D635A17AC4FA90061EEC4 /* Pong */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B01D636417AC4FA90061EEC4 /* Build configuration list for PBXNativeTarget "Pong" */;
+			buildPhases = (
+				B01D635717AC4FA90061EEC4 /* Sources */,
+				B01D635817AC4FA90061EEC4 /* Frameworks */,
+				B01D635917AC4FA90061EEC4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pong;
+			productName = Pong;
+			productReference = B01D635B17AC4FA90061EEC4 /* Pong */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B01D635317AC4FA90061EEC4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Steven Gleed";
+			};
+			buildConfigurationList = B01D635617AC4FA90061EEC4 /* Build configuration list for PBXProject "Pong" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B01D635217AC4FA90061EEC4;
+			productRefGroup = B01D635C17AC4FA90061EEC4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B01D635A17AC4FA90061EEC4 /* Pong */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B01D635717AC4FA90061EEC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B01D635F17AC4FA90061EEC4 /* main.c in Sources */,
+				B01D636F17AD2FE50061EEC4 /* graphics.c in Sources */,
+				B01D637217AD902C0061EEC4 /* sprite.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B01D636217AC4FA90061EEC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B01D636317AC4FA90061EEC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B01D636517AC4FA90061EEC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Frameworks\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B01D636617AC4FA90061EEC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Frameworks\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B01D635617AC4FA90061EEC4 /* Build configuration list for PBXProject "Pong" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B01D636217AC4FA90061EEC4 /* Debug */,
+				B01D636317AC4FA90061EEC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B01D636417AC4FA90061EEC4 /* Build configuration list for PBXNativeTarget "Pong" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B01D636517AC4FA90061EEC4 /* Debug */,
+				B01D636617AC4FA90061EEC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B01D635317AC4FA90061EEC4 /* Project object */;
+}
