@@ -12,6 +12,13 @@
 
 const char *SPRITE_PATH = "~/Documents/code/Pong/Pong/bmp/";
 
+void sprite_init(struct sprite *s) {
+	s->texture = NULL;
+	s->name = "";
+	s->height = 0;
+	s->width = 0;
+}
+
 bool sprite_load(const char *filename, struct sprite *spr, SDL_Renderer *r) {
 	char * full_path = "";
 	strcat(full_path, SPRITE_PATH);
@@ -28,6 +35,9 @@ void sprite_draw(struct vector2 * pos, SDL_Renderer *r, SDL_Texture *t) {
 	SDL_RenderCopy(r, t, NULL, NULL);
 }
 
-void sprite_delete() {
-	
+void sprite_delete(struct sprite *s) {
+	if (s) {
+		SDL_DestroyTexture(s->texture);
+		free(s);
+	}
 }

@@ -27,4 +27,6 @@ struct colour {
 	int a;
 };
 
+void set_vector2(struct vector2 *v, const int x, const int y);
+
 #endif

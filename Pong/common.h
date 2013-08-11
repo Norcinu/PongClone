@@ -14,5 +14,9 @@
 #define SPRITE_PADDLE "/Users/steven/Documents/code/Pong/Pong/bmp/paddle.bmp"
 #define SPRITE_WALL "/Users/steven/Documents/code/Pong/Pong/bmp/wall.bmp"
 
+typedef int sbool;
+
+#define sfalse 0
+#define strue  1
 
 #endif
