@@ -10,7 +10,11 @@
 #include "sprite.h"
 #include "math.h"
 
+#ifdef _WIN32
+const char *SPRITE_PATH = "./bmp/";
+#else
 const char *SPRITE_PATH = "~/Documents/code/Pong/Pong/bmp/";
+#endif
 
 void sprite_init(struct sprite *s) {
 	s->texture = NULL;
@@ -19,16 +23,17 @@ void sprite_init(struct sprite *s) {
 	s->width = 0;
 }
 
-bool sprite_load(const char *filename, struct sprite *spr, SDL_Renderer *r) {
+int sprite_load(const char *filename, struct sprite *spr, SDL_Renderer *r) {
 	char * full_path = "";
+	SDL_Surface *surface = NULL;
 	strcat(full_path, SPRITE_PATH);
 	strcat(full_path, filename);
-	SDL_Surface *surface = SDL_LoadBMP(full_path);
+	surface = SDL_LoadBMP(full_path);
 	if (!surface)
-		return false;
+		return 0;
 	spr->texture = SDL_CreateTextureFromSurface(r, surface);
 	SDL_FreeSurface(surface);
-	return true;
+	return 1;
 }
 
 void sprite_draw(struct vector2 * pos, SDL_Renderer *r, SDL_Texture *t) {

@@ -20,7 +20,7 @@ struct sprite {
 	int width;
 };
 
-bool sprite_load(const char *filename, struct sprite *spr, SDL_Renderer *r);
+int sprite_load(const char *filename, struct sprite *spr, SDL_Renderer *r);
 void sprite_draw(struct vector2 * pos, SDL_Renderer *r, SDL_Texture *t);
 void sprite_delete(struct sprite *s);
 

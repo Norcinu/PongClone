@@ -16,28 +16,26 @@ static int sprite_count = 0;
 
 sbool graphics_init(const char *title, int h, int w) {
 	int i = 0;
+	SDL_Rect screen_dimensions;
+	int mid_x = 0;
+	int mid_y = 0;
+	Uint32 render_ops = SDL_RENDERER_ACCELERATED|SDL_RENDERER_PRESENTVSYNC;
+
 	if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
 		return 0;
 
-//	sprites = (struct sprite*)malloc(MAX_SPRITES * sizeof(struct sprite));
 	for (; i < MAX_SPRITES; i++) {
 		sprites[i] = (struct sprite *)malloc(sizeof(struct sprite));
-		//sprites[i].texture = NULL;
-		//sprites[i].height = 0;
-		//sprites[i].width = 0;
-		//sprites[i].name = "";
 	}
 	gfx_settings = (struct gfx_context *)malloc(sizeof(struct gfx_context));
 	if (gfx_settings == NULL) {
 		return sfalse;
 	}
 	
-	SDL_Rect screen_dimensions;
 	SDL_GetDisplayBounds(0, &screen_dimensions);
-	int mid_x = (screen_dimensions.w / 2) - (w / 2);
-	int mid_y = (screen_dimensions.h / 2) - (h / 2);
+	mid_x = (screen_dimensions.w / 2) - (w / 2);
+	mid_y = (screen_dimensions.h / 2) - (h / 2);
 
-	Uint32 render_ops = SDL_RENDERER_ACCELERATED|SDL_RENDERER_PRESENTVSYNC;
 	gfx_settings->screen_height = h;
 	gfx_settings->screen_width = w;
 	gfx_settings->clear_colour = 0;
@@ -69,7 +67,7 @@ void graphics_end_scene() {
 sbool graphics_add_sprite(const char *filename, int *id) {
 	if (sprite_count < MAX_SPRITES) {
 		SDL_Rect r;
-		struct sprite *s= (struct sprite*)malloc(sizeof(struct sprite));
+		struct sprite *s=(struct sprite*)malloc(sizeof(struct sprite));
 		SDL_Surface *surf = SDL_LoadBMP(filename);
 		if (!surf)
 			return sfalse;

@@ -10,6 +10,7 @@
 #include "graphics.h"
 #include "common.h"
 #include "math.h"
+#include <direct.h>
 
 const int SCREEN_HEIGHT = 640;
 const int SCREEN_WIDTH  = 800;
@@ -19,21 +20,29 @@ const char * DATA_DIR = "~/Documents/code/Pong/Pong/bmp/";
 int main(int argc, const char * argv[])
 {
 	int id = 0;
+	int running = 1;
 	struct vector2 position;
+	SDL_Event event;
+	char buffer[1024];
+	const char *current_dir = _getcwd(buffer,1024);
+
 	graphics_init("Pong", 640, 800);
-	graphics_add_sprite(SPRITE_BACKGROUND, &id);
-	graphics_add_sprite(SPRITE_BALL, &id);
-	graphics_add_sprite(SPRITE_PADDLE, &id);
-	graphics_add_sprite(SPRITE_WALL, &id);
+	if (!graphics_add_sprite(SPRITE_BACKGROUND, &id))
+		goto shutdown;
+	if (!graphics_add_sprite(SPRITE_BALL, &id))
+		goto shutdown;
+	if (!graphics_add_sprite(SPRITE_PADDLE, &id))
+		goto shutdown;
+	if (!graphics_add_sprite(SPRITE_WALL, &id))
+		goto shutdown;
 	
 	set_vector2(&position, 3, 150);
-	bool running = true;
-	SDL_Event event;
+
 	while (running) {
 		while (SDL_PollEvent(&event)) {
 			if (event.type == SDL_QUIT ||
 				event.key.keysym.sym == SDLK_ESCAPE) {
-				running = false;
+				running = 0;
 			}
 		}
 		graphics_begin_scene();
@@ -41,6 +50,7 @@ int main(int argc, const char * argv[])
 		graphics_end_scene();
 	}
 	
+shutdown:
 	graphics_shutdown();
 	return 0;
 }
