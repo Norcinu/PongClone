@@ -17,6 +17,7 @@
 		B01D636F17AD2FE50061EEC4 /* graphics.c in Sources */ = {isa = PBXBuildFile; fileRef = B01D636E17AD2FE50061EEC4 /* graphics.c */; };
 		B01D637217AD902C0061EEC4 /* sprite.c in Sources */ = {isa = PBXBuildFile; fileRef = B01D637117AD902C0061EEC4 /* sprite.c */; };
 		B0495FE217B29BD100D7A5FE /* world.c in Sources */ = {isa = PBXBuildFile; fileRef = B0495FE117B29BD100D7A5FE /* world.c */; };
+		B075BD4317C1042000EA2A5B /* libjson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B075BD4217C1042000EA2A5B /* libjson.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +51,7 @@
 		B01D637317AD90420061EEC4 /* math.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = math.h; sourceTree = "<group>"; };
 		B0495FE017B29BC700D7A5FE /* world.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = world.h; sourceTree = "<group>"; };
 		B0495FE117B29BD100D7A5FE /* world.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = world.c; sourceTree = "<group>"; };
+		B075BD4217C1042000EA2A5B /* libjson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjson.a; path = "../../../../../usr/local/Cellar/json-c/0.10/lib/libjson.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				B01D636A17AC638B0061EEC4 /* OpenGL.framework in Frameworks */,
 				B01D636817AC63850061EEC4 /* Cocoa.framework in Frameworks */,
 				B01D636C17AC63BD0061EEC4 /* SDL2.framework in Frameworks */,
+				B075BD4317C1042000EA2A5B /* libjson.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +72,7 @@
 		B01D635217AC4FA90061EEC4 = {
 			isa = PBXGroup;
 			children = (
+				B075BD4217C1042000EA2A5B /* libjson.a */,
 				B01D636B17AC63BD0061EEC4 /* SDL2.framework */,
 				B01D636917AC638B0061EEC4 /* OpenGL.framework */,
 				B01D636717AC63850061EEC4 /* Cocoa.framework */,
@@ -232,6 +236,11 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Frameworks\"",
 				);
+				HEADER_SEARCH_PATHS = "/usr/local/Cellar/json-c/0.10/include";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/usr/local/Cellar/json-c/0.10/lib\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -242,6 +251,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Frameworks\"",
+				);
+				HEADER_SEARCH_PATHS = "/usr/local/Cellar/json-c/0.10/include";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"/usr/local/Cellar/json-c/0.10/lib\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
