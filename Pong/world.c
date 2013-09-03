@@ -22,6 +22,8 @@ void world_init() {
 	int i = 0;
 	FILE *file;
 	struct json_object *obj;
+	struct json_object *copy_obj = NULL;
+	enum json_type type;
 	
 	for (; i < MAX_ENTITIES; i++) {
 		entities[i] = (struct entity *)malloc(sizeof(struct entity));
@@ -32,6 +34,15 @@ void world_init() {
 	if (str == NULL) {
 		printf("NULL");
 	}
+	obj = json_tokener_parse(str);
+	obj = json_object_object_get(obj, "entities");
+	int length = json_object_array_length(obj);
+	copy_obj = json_object_array_get_idx(obj, 0);
+	struct json_object *b = json_object_object_get(copy_obj, "name");
+	char *c = json_object_get_string(b);
+	struct json_object *s2 = json_object_object_get(copy_obj, ")
+	//char * b = json_object_to_json_string(copy_obj);
+	//printf("%s\n", b);
 	// read entity loading from file.
 	// entity name, graphic, start x, start y
 }
@@ -46,7 +57,9 @@ void world_update() {
 void world_render() {
 	
 }
-
+							
+							
+// move to json_parser.c
 char* read_file(char* filename)
 {
 	FILE* file = fopen(filename,"r");

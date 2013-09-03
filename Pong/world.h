@@ -9,8 +9,6 @@
 #ifndef Pong_world_h
 #define Pong_world_h
 
-
-
 void world_init();
 void world_update();
 void world_render();

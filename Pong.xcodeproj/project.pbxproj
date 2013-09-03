@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B010A52617D4C28000B11A34 /* json_parser.c in Sources */ = {isa = PBXBuildFile; fileRef = B010A52517D4C28000B11A34 /* json_parser.c */; };
 		B01BCFD817B19CEC0058FE58 /* math.c in Sources */ = {isa = PBXBuildFile; fileRef = B01BCFD717B19CEC0058FE58 /* math.c */; };
 		B01BCFDA17B1A4440058FE58 /* entity.c in Sources */ = {isa = PBXBuildFile; fileRef = B01BCFD917B1A4440058FE58 /* entity.c */; };
 		B01D635F17AC4FA90061EEC4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = B01D635E17AC4FA90061EEC4 /* main.c */; };
@@ -35,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		B001056017AEBE0A00D8442C /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		B010A52417D4BF5600B11A34 /* json_parser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = json_parser.h; sourceTree = "<group>"; };
+		B010A52517D4C28000B11A34 /* json_parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = json_parser.c; sourceTree = "<group>"; };
 		B01BCFD717B19CEC0058FE58 /* math.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = math.c; sourceTree = "<group>"; };
 		B01BCFD917B1A4440058FE58 /* entity.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = entity.c; sourceTree = "<group>"; };
 		B01BCFDB17B1A44F0058FE58 /* entity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = entity.h; sourceTree = "<group>"; };
@@ -96,6 +99,8 @@
 				B01BCFD917B1A4440058FE58 /* entity.c */,
 				B0495FE017B29BC700D7A5FE /* world.h */,
 				B0495FE117B29BD100D7A5FE /* world.c */,
+				B010A52417D4BF5600B11A34 /* json_parser.h */,
+				B010A52517D4C28000B11A34 /* json_parser.c */,
 				B01BCFDB17B1A44F0058FE58 /* entity.h */,
 				B01D636D17AD2FD60061EEC4 /* graphics.h */,
 				B01D636E17AD2FE50061EEC4 /* graphics.c */,
@@ -166,6 +171,7 @@
 				B01BCFD817B19CEC0058FE58 /* math.c in Sources */,
 				B01BCFDA17B1A4440058FE58 /* entity.c in Sources */,
 				B0495FE217B29BD100D7A5FE /* world.c in Sources */,
+				B010A52617D4C28000B11A34 /* json_parser.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
