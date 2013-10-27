@@ -24,5 +24,11 @@
             "x": 15,
             "y": 312
         },
+        {
+            "name": "paddle_right",
+            "sprite": "paddle.bmp",
+            "x": 600,
+            "y": 312
+        }
     ]
 }

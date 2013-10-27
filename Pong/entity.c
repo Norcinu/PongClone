@@ -14,6 +14,7 @@
 void entity_init(struct entity *ent) {
 	ent->gid = 0;
 	ent->active = 0;
+	ent->position = (struct vector2*)malloc(sizeof(struct vector2));
 	ent->position->x = 0;
 	ent->position->y = 0;
 	ent->prev_position = ent->position;

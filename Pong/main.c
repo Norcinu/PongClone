@@ -11,6 +11,7 @@
 #include "common.h"
 #include "math.h"
 #include "world.h"
+
 const int SCREEN_HEIGHT = 640;
 const int SCREEN_WIDTH  = 800;
 

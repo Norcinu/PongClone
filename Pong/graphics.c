@@ -72,7 +72,7 @@ sbool graphics_add_sprite(const char *filename, int *id) {
 		if (!surf)
 			return sfalse;
 		s->texture = SDL_CreateTextureFromSurface(gfx_settings->renderer
-							  ,surf);
+							  , surf);
 		SDL_QueryTexture(s->texture, NULL, NULL, &r.w, &r.h);
 		s->width = r.w;
 		s->height = r.h;
@@ -109,7 +109,6 @@ void graphics_shutdown() {
 		sprite_delete(sprites[i]);
 		sprites[i] = NULL;
 	}
-//	free(sprites);
 	free(gfx_settings);
 }
 

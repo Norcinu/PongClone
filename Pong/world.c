@@ -11,40 +11,45 @@
 #include "world.h"
 #include "entity.h"
 #include "graphics.h"
-
-#include <json/json.h>
+#include "math.h"
+//#include <json/json.h>
+#include <jansson.h>
 
 struct entity *entities[MAX_ENTITIES];
 
 char* read_file(char* filename);
 
 void world_init() {
-	int i = 0;
-	FILE *file;
-	struct json_object *obj;
-	struct json_object *copy_obj = NULL;
-	enum json_type type;
+	size_t i = 0;
+	char *text;
+	json_t *root;
+	json_error_t error;
+	text = read_file("/Users/steven/Documents/code/Pong/Pong/data/config2.json");
+	if (!text)
+		return;
+	root = json_loads(text, 0, &error);
+	if (!root)
+		fprintf(stderr, "error on line %d, %s\n", error.line, error.text);
 	
-	for (; i < MAX_ENTITIES; i++) {
-		entities[i] = (struct entity *)malloc(sizeof(struct entity));
+	if (!json_is_array(root)) {
+		fprintf(stderr, "error on line %d, %s\n", error.line, error.text);
+	}
+	json_t *ar = json_object_get(root, "entities");
+	if (!json_is_array(ar)) {
+		fprintf(stderr, "error: root is not an array\n");
+		json_decref(root);
+		return;
 	}
 	
-	file = fopen("entities.txt", "r");
-	char *str = read_file("/Users/steven/Documents/code/Pong/Pong/data/config.json");
-	if (str == NULL) {
-		printf("NULL");
+	for (i = 0; i < json_array_size(ar); i++) {
+		json_t *entity;
+		json_t *name, *sprite, *x, *y;
+		name = json_array_get(ar, i);
+		if (!json_is_object(name)) {
+			fprintf(stderr, "error: not object\n");
+			return;
+		}
 	}
-	obj = json_tokener_parse(str);
-	obj = json_object_object_get(obj, "entities");
-	int length = json_object_array_length(obj);
-	copy_obj = json_object_array_get_idx(obj, 0);
-	struct json_object *b = json_object_object_get(copy_obj, "name");
-	char *c = json_object_get_string(b);
-	struct json_object *s2 = json_object_object_get(copy_obj, ")
-	//char * b = json_object_to_json_string(copy_obj);
-	//printf("%s\n", b);
-	// read entity loading from file.
-	// entity name, graphic, start x, start y
 }
 
 void world_update() {
@@ -55,7 +60,10 @@ void world_update() {
 }
 
 void world_render() {
-	
+	int i = 0;
+	for (; i < MAX_ENTITIES; i++) {
+		entity_render(entities[i], 0.0);
+	}
 }
 							
 							
@@ -64,9 +72,7 @@ char* read_file(char* filename)
 {
 	FILE* file = fopen(filename,"r");
 	if(file == NULL)
-	{
 		return NULL;
-	}
 	
 	fseek(file, 0, SEEK_END);
 	long int size = ftell(file);

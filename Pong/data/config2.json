@@ -1,0 +1,33 @@
+[
+    {
+        "name": "background",
+        "sprite": "background.bmp",
+        "x": 0,
+        "y": 0
+    },
+    {
+        "name": "wall_top",
+        "sprite": "wall.bmp",
+        "x": 15,
+        "y": 15
+    },
+    {
+        "name": "wall_bottom",
+        "sprite": "wall.bmp",
+        "x": 15,
+        "y": 620
+    },
+    {
+        "name": "paddle_left",
+        "sprite": "paddle.bmp",
+        "x": 15,
+        "y": 312
+    },
+    {
+        "name": "paddle_right",
+        "sprite": "paddle.bmp",
+        "x": 600,
+        "y": 312
+    }
+]
+

@@ -9,6 +9,6 @@
 #include <stdio.h>
 #include "json_parser.h"
 
-json_type get_json_type(const json_object *o) {
-	return json_type_boolean;
-}
+//json_type get_json_type(const json_object *o) {
+//	return json_type_boolean;
+//}
