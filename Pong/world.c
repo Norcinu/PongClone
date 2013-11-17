@@ -24,9 +24,15 @@ void world_init() {
 	char *text;
 	json_t *root;
 	json_error_t error;
-	text = read_file("/Users/steven/Documents/code/Pong/Pong/data/config2.json");
+	text = read_file("/Users/steven/Documents/code/Pong/Pong/data/config.json");
 	if (!text)
 		return;
+	
+	for (i = 0; i < MAX_ENTITIES; i++) {
+		//entities[i] = (struct entity*)malloc(sizeof(struct entity));
+		entity_init(entities[i]);
+	}
+	
 	root = json_loads(text, 0, &error);
 	if (!root)
 		fprintf(stderr, "error on line %d, %s\n", error.line, error.text);
@@ -34,6 +40,7 @@ void world_init() {
 	if (!json_is_array(root)) {
 		fprintf(stderr, "error on line %d, %s\n", error.line, error.text);
 	}
+	
 	json_t *ar = json_object_get(root, "entities");
 	if (!json_is_array(ar)) {
 		fprintf(stderr, "error: root is not an array\n");
@@ -48,6 +55,10 @@ void world_init() {
 		if (!json_is_object(name)) {
 			fprintf(stderr, "error: not object\n");
 			return;
+		} else {
+			entities[i]->gid = i;
+			entities[i]->active = 1;
+		
 		}
 	}
 }

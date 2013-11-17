@@ -20,6 +20,7 @@ struct entity {
 	int active;
 	struct vector2 *position;
 	struct vector2 *prev_position;
+	char name[20];
 };
 
 void entity_init(struct entity *ent);

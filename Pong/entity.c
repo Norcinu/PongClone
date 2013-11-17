@@ -11,12 +11,21 @@
 #include "math.h"
 #include "graphics.h"
 
+static int entity_count = 0;
+const char *BASE_NAME = "Entity ";
+
 void entity_init(struct entity *ent) {
+	char buffer[2] = {0};
+	if (ent == NULL)
+		ent = (struct entity*)malloc(sizeof(struct entity));
+	entity_count++;
+	sprintf(buffer, "%d", entity_count);
+	strcat(ent->name, BASE_NAME);
+	strcat(ent->name, buffer);
 	ent->gid = 0;
 	ent->active = 0;
 	ent->position = (struct vector2*)malloc(sizeof(struct vector2));
-	ent->position->x = 0;
-	ent->position->y = 0;
+	set_vector2(ent->position, 0, 0);
 	ent->prev_position = ent->position;
 }
 

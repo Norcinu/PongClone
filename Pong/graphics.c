@@ -24,6 +24,9 @@ sbool graphics_init(const char *title, int h, int w) {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
 		return 0;
 
+	// load images from json file.
+	// entities point to id of sprite.
+	// if (entity->graphic_name == sprite) entity->gid = sprite->id;
 	for (; i < MAX_SPRITES; i++) {
 		sprites[i] = (struct sprite *)malloc(sizeof(struct sprite));
 	}

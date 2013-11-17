@@ -12,4 +12,7 @@
 //#include <json/json.h>
 
 
+void parse_file(const char *file);
+
+
 #endif
