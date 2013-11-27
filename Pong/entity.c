@@ -14,10 +14,9 @@
 static int entity_count = 0;
 const char *BASE_NAME = "Entity ";
 
-void entity_init(struct entity *ent) {
+struct entity* entity_init() {
 	char buffer[2] = {0};
-	if (ent == NULL)
-		ent = (struct entity*)malloc(sizeof(struct entity));
+	struct entity *ent = (struct entity*)malloc(sizeof(struct entity));
 	entity_count++;
 	sprintf(buffer, "%d", entity_count);
 	strcat(ent->name, BASE_NAME);
@@ -27,6 +26,7 @@ void entity_init(struct entity *ent) {
 	ent->position = (struct vector2*)malloc(sizeof(struct vector2));
 	set_vector2(ent->position, 0, 0);
 	ent->prev_position = ent->position;
+	return ent;
 }
 
 void entity_update(struct entity *ent, const double dt) {
@@ -49,4 +49,8 @@ void entity_render(struct entity *ent, double dt) {
 	if (ent->active) {
 		graphics_draw_sprite(ent->gid, ent->position);
 	}
+}
+
+void entity_free(struct entity *ent) {
+	
 }

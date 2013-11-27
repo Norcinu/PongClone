@@ -12,8 +12,8 @@
 #include "entity.h"
 #include "graphics.h"
 #include "math.h"
-//#include <json/json.h>
 #include <jansson.h>
+#include "json_parser.h"
 
 struct entity *entities[MAX_ENTITIES];
 
@@ -29,17 +29,16 @@ void world_init() {
 		return;
 	
 	for (i = 0; i < MAX_ENTITIES; i++) {
-		//entities[i] = (struct entity*)malloc(sizeof(struct entity));
-		entity_init(entities[i]);
+		entities[i] = entity_init();
 	}
 	
 	root = json_loads(text, 0, &error);
-	if (!root)
-		fprintf(stderr, "error on line %d, %s\n", error.line, error.text);
+//	if (!root)
+//		fprintf(stderr,"error on line %d, %s\n",error.line,error.text);
 	
-	if (!json_is_array(root)) {
-		fprintf(stderr, "error on line %d, %s\n", error.line, error.text);
-	}
+//	if (!json_is_array(root)) {
+//		fprintf(stderr,"error on line %d, %s\n",error.line,error.text);
+//	}
 	
 	json_t *ar = json_object_get(root, "entities");
 	if (!json_is_array(ar)) {
@@ -50,16 +49,27 @@ void world_init() {
 	
 	for (i = 0; i < json_array_size(ar); i++) {
 		json_t *entity;
-		json_t *name, *sprite, *x, *y;
-		name = json_array_get(ar, i);
-		if (!json_is_object(name)) {
+		json_t *name, *sprite, §*x, *y;
+		entity = json_array_get(ar, i);
+		if (!json_is_object(entity)) {
 			fprintf(stderr, "error: not object\n");
 			return;
 		} else {
-			entities[i]->gid = i;
+			//entities[i]->gid = i;
 			entities[i]->active = 1;
-		
 		}
+		
+		name = json_object_get(entity, "name");
+		if (!json_is_string(name)) {
+			json_decref(name);
+			return;
+		}
+		
+		//entities[i]->name = json_string_value(name);
+		x = json_object_get(entity, "x");
+		entities[i]->position->x = (int)json_integer_value(x);
+		y = json_object_get(entity, "y");
+		entities[i]->position->y = (int)json_integer_value(y);
 	}
 }
 
@@ -76,9 +86,13 @@ void world_render() {
 		entity_render(entities[i], 0.0);
 	}
 }
-							
+
+void world_shutdown() {
+	
+}
 							
 // move to json_parser.c
+#if 0
 char* read_file(char* filename)
 {
 	FILE* file = fopen(filename,"r");
@@ -95,3 +109,4 @@ char* read_file(char* filename)
 	
 	return content;
 }
+#endif

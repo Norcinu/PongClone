@@ -6,11 +6,12 @@
 //  Copyright (c) 2013 Steven Gleed. All rights reserved.
 //
 
-#ifndef Pong_world_h
-#define Pong_world_h
+#ifndef PONG_WORLD_H
+#define PONG_WORLD_H
 
 void world_init();
 void world_update();
 void world_render();
+void world_shutdown();
 
 #endif

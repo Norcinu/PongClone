@@ -23,10 +23,11 @@ struct entity {
 	char name[20];
 };
 
-void entity_init(struct entity *ent);
+struct entity* entity_init();
 void entity_update(struct entity *ent, const double dt);
 int  entity_check_collision(struct entity *one, struct entity *two);
 void entity_set_position(struct entity *ent, int x, int y);
 void entity_render(struct entity *ent, double dt);
+void entity_free(struct entity *ent);
 
 #endif

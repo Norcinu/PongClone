@@ -11,7 +11,7 @@
 #include "sprite.h"
 #include "math.h"
 
-struct sprite *sprites[MAX_SPRITES];//[MAX_SPRITES];
+struct sprite *sprites[MAX_SPRITES];
 static int sprite_count = 0;
 
 sbool graphics_init(const char *title, int h, int w) {
@@ -24,12 +24,10 @@ sbool graphics_init(const char *title, int h, int w) {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
 		return 0;
 
-	// load images from json file.
-	// entities point to id of sprite.
-	// if (entity->graphic_name == sprite) entity->gid = sprite->id;
 	for (; i < MAX_SPRITES; i++) {
 		sprites[i] = (struct sprite *)malloc(sizeof(struct sprite));
 	}
+	
 	gfx_settings = (struct gfx_context *)malloc(sizeof(struct gfx_context));
 	if (gfx_settings == NULL) {
 		return sfalse;
@@ -48,6 +46,10 @@ sbool graphics_init(const char *title, int h, int w) {
 						    render_ops);
 	SDL_SetRenderDrawColor(gfx_settings->renderer, 128, 129, 8, 0);
 	
+	for (i = 0; i < MAX_SPRITES; i++) {
+		
+	}
+	
 	return sfalse;
 }
 
@@ -65,7 +67,8 @@ void graphics_draw_sprite(const int id, struct vector2 *pos) {
 }
 
 void graphics_end_scene() {
-	SDL_RenderPresent(gfx_settings->renderer);}
+	SDL_RenderPresent(gfx_settings->renderer);
+}
 
 sbool graphics_add_sprite(const char *filename, int *id) {
 	if (sprite_count < MAX_SPRITES) {
