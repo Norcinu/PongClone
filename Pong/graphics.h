@@ -29,7 +29,7 @@ struct gfx_context *gfx_settings;
 
 sbool graphics_init(const char *title, const int h, const int w);
 void  graphics_begin_scene();
-void  graphics_draw_sprite(const int id, struct vector2 *pos);
+void  graphics_draw_sprite(const int id, struct vector2 *pos, struct vector2 *dim);
 void  graphics_end_scene();
 
 sbool graphics_add_sprite(const char *filname, int *id);

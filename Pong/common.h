@@ -22,10 +22,10 @@
 #define SPRITE_WALL "./bmp/wall.bmp"
 #endif
 #else
-#define SPRITE_BACKGROUND "/Users/steven/Documents/code/Pong/Pong/bmp/background.bmp"
-#define SPRITE_BALL "/Users/steven/Documents/code/Pong/Pong/bmp/ball.bmp"
-#define SPRITE_PADDLE "/Users/steven/Documents/code/Pong/Pong/bmp/paddle.bmp"
-#define SPRITE_WALL "/Users/steven/Documents/code/Pong/Pong/bmp/wall.bmp"
+#define SPRITE_BACKGROUND "/Users/steven/Documents/code/PongClone/Pong/bmp/background.bmp"
+#define SPRITE_BALL "/Users/steven/Documents/code/PongClone/Pong/bmp/ball.bmp"
+#define SPRITE_PADDLE "/Users/steven/Documents/code/PongClone/Pong/bmp/paddle.bmp"
+#define SPRITE_WALL "/Users/steven/Documents/code/PongClone/Pong/bmp/wall.bmp"
 #endif
 
 typedef int sbool;

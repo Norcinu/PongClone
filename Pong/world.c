@@ -19,12 +19,13 @@ struct entity *entities[MAX_ENTITIES];
 
 char* read_file(char* filename);
 
-void world_init() {
+void world_init()
+{
 	size_t i = 0;
 	char *text;
 	json_t *root;
 	json_error_t error;
-	text = read_file("/Users/steven/Documents/code/Pong/Pong/data/config.json");
+	text = read_file("/Users/steven/Documents/code/PongClone/Pong/data/config.json");
 	if (!text)
 		return;
 	
@@ -33,12 +34,10 @@ void world_init() {
 	}
 	
 	root = json_loads(text, 0, &error);
-//	if (!root)
-//		fprintf(stderr,"error on line %d, %s\n",error.line,error.text);
-	
-//	if (!json_is_array(root)) {
-//		fprintf(stderr,"error on line %d, %s\n",error.line,error.text);
-//	}
+	if (!root)
+		fprintf(stderr,"error on line %d, %s\n",error.line,error.text);
+
+    free(text);
 	
 	json_t *ar = json_object_get(root, "entities");
 	if (!json_is_array(ar)) {
@@ -46,10 +45,10 @@ void world_init() {
 		json_decref(root);
 		return;
 	}
-	
-	for (i = 0; i < json_array_size(ar); i++) {
+    
+    for (i = 0; i < json_array_size(ar); i++) {
 		json_t *entity;
-		json_t *name, *sprite, §*x, *y;
+		json_t *name, *x, *y, *gid, *height, *width;
 		entity = json_array_get(ar, i);
 		if (!json_is_object(entity)) {
 			fprintf(stderr, "error: not object\n");
@@ -58,36 +57,50 @@ void world_init() {
 			//entities[i]->gid = i;
 			entities[i]->active = 1;
 		}
+            
 		
-		name = json_object_get(entity, "name");
-		if (!json_is_string(name)) {
-			json_decref(name);
-			return;
-		}
+        name = json_object_get(entity, "name");
+        if (!json_is_string(name)) {
+            json_decref(name);
+            return;
+        }
 		
-		//entities[i]->name = json_string_value(name);
-		x = json_object_get(entity, "x");
-		entities[i]->position->x = (int)json_integer_value(x);
-		y = json_object_get(entity, "y");
-		entities[i]->position->y = (int)json_integer_value(y);
+        gid = json_object_get(entity, "gid");
+        entities[i]->gid = (int)json_integer_value(gid);
+		
+        height = json_object_get(entity, "height");
+        width = json_object_get(entity, "width");
+        int h = (int)json_integer_value(height);
+        int w = (int)json_integer_value(width);
+        set_vector2(entities[i]->dimension, w, h);
+        
+        x = json_object_get(entity, "x");
+        entities[i]->position->x = (int)json_integer_value(x);
+        y = json_object_get(entity, "y");
+        entities[i]->position->y = (int)json_integer_value(y);
 	}
 }
 
-void world_update() {
+void world_update()
+{
 	int i = 0;
 	for (; i < MAX_ENTITIES; i++) {
 		entity_update(entities[i], 0.0);
 	}
 }
 
-void world_render() {
+void world_render()
+{
 	int i = 0;
+    graphics_begin_scene();
 	for (; i < MAX_ENTITIES; i++) {
 		entity_render(entities[i], 0.0);
 	}
+    graphics_end_scene();
 }
 
-void world_shutdown() {
+void world_shutdown()
+{
 	
 }
 							

@@ -14,7 +14,8 @@
 struct sprite *sprites[MAX_SPRITES];
 static int sprite_count = 0;
 
-sbool graphics_init(const char *title, int h, int w) {
+sbool graphics_init(const char *title, int h, int w)
+{
 	int i = 0;
 	SDL_Rect screen_dimensions;
 	int mid_x = 0;
@@ -41,9 +42,9 @@ sbool graphics_init(const char *title, int h, int w) {
 	gfx_settings->screen_width = w;
 	gfx_settings->clear_colour = 0;
 	gfx_settings->window = SDL_CreateWindow(title, mid_x, mid_y, w, h,
-						SDL_WINDOW_OPENGL);
+                                            SDL_WINDOW_OPENGL);
 	gfx_settings->renderer = SDL_CreateRenderer(gfx_settings->window, -1,
-						    render_ops);
+                                                render_ops);
 	SDL_SetRenderDrawColor(gfx_settings->renderer, 128, 129, 8, 0);
 	
 	for (i = 0; i < MAX_SPRITES; i++) {
@@ -53,16 +54,18 @@ sbool graphics_init(const char *title, int h, int w) {
 	return sfalse;
 }
 
-void graphics_begin_scene() {
+void graphics_begin_scene()
+{
 	SDL_RenderClear(gfx_settings->renderer);
 }
 
-void graphics_draw_sprite(const int id, struct vector2 *pos) {
+void graphics_draw_sprite(const int id, struct vector2 *pos, struct vector2 *dim)
+{
 	SDL_Rect r;
 	r.x = pos->x;
 	r.y = pos->y;
-	r.h = sprites[id]->height;
-	r.w = sprites[id]->width;
+    r.h = dim->y;
+    r.w = dim->x;
 	SDL_RenderCopy(gfx_settings->renderer, sprites[id]->texture, NULL, &r);
 }
 
@@ -70,15 +73,15 @@ void graphics_end_scene() {
 	SDL_RenderPresent(gfx_settings->renderer);
 }
 
-sbool graphics_add_sprite(const char *filename, int *id) {
+sbool graphics_add_sprite(const char *filename, int *id)
+{
 	if (sprite_count < MAX_SPRITES) {
 		SDL_Rect r;
 		struct sprite *s=(struct sprite*)malloc(sizeof(struct sprite));
 		SDL_Surface *surf = SDL_LoadBMP(filename);
 		if (!surf)
 			return sfalse;
-		s->texture = SDL_CreateTextureFromSurface(gfx_settings->renderer
-							  , surf);
+		s->texture = SDL_CreateTextureFromSurface(gfx_settings->renderer, surf);
 		SDL_QueryTexture(s->texture, NULL, NULL, &r.w, &r.h);
 		s->width = r.w;
 		s->height = r.h;
@@ -94,19 +97,23 @@ sbool graphics_add_sprite(const char *filename, int *id) {
 	}
 }
 
-void graphics_remove_sprite(const int id) {
+void graphics_remove_sprite(const int id)
+{
 
 }
 
-void graphics_set_screen_size(const int h, const int w) {
+void graphics_set_screen_size(const int h, const int w)
+{
 	
 }
 
-void graphics_set_screen_clear_colour(int r, int g, int b, int a) {
+void graphics_set_screen_clear_colour(int r, int g, int b, int a)
+{
 	
 }
 
-void graphics_shutdown() {
+void graphics_shutdown()
+{
 	int i = 0;
 	SDL_DestroyRenderer(gfx_settings->renderer);
 	SDL_DestroyWindow(gfx_settings->window);

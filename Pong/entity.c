@@ -14,7 +14,8 @@
 static int entity_count = 0;
 const char *BASE_NAME = "Entity ";
 
-struct entity* entity_init() {
+struct entity* entity_init()
+{
 	char buffer[2] = {0};
 	struct entity *ent = (struct entity*)malloc(sizeof(struct entity));
 	entity_count++;
@@ -26,28 +27,34 @@ struct entity* entity_init() {
 	ent->position = (struct vector2*)malloc(sizeof(struct vector2));
 	set_vector2(ent->position, 0, 0);
 	ent->prev_position = ent->position;
+    ent->dimension = (struct vector2*)malloc(sizeof(struct vector2));
+    set_vector2(ent->dimension, 0, 0);
 	return ent;
 }
 
-void entity_update(struct entity *ent, const double dt) {
+void entity_update(struct entity *ent, const double dt)
+{
 	if (ent->active) {
 		
 	}
 }
 
-int entity_check_collision(struct entity *one, struct entity *two) {
+int entity_check_collision(struct entity *one, struct entity *two)
+{
 	return NOT_COLLIDED;
 }
 
-void entity_set_position(struct entity *ent, int x, int y) {
+void entity_set_position(struct entity *ent, int x, int y)
+{
 	ent->prev_position = ent->position;
 	ent->position->x = x;
 	ent->position->y = y;
 }
 
-void entity_render(struct entity *ent, double dt) {
+void entity_render(struct entity *ent, double dt)
+{
 	if (ent->active) {
-		graphics_draw_sprite(ent->gid, ent->position);
+		graphics_draw_sprite(ent->gid, ent->position, ent->dimension);
 	}
 }
 

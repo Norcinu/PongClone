@@ -14,11 +14,12 @@
 		B01D636117AC4FA90061EEC4 /* Pong.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = B01D636017AC4FA90061EEC4 /* Pong.1 */; };
 		B01D636817AC63850061EEC4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01D636717AC63850061EEC4 /* Cocoa.framework */; };
 		B01D636A17AC638B0061EEC4 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01D636917AC638B0061EEC4 /* OpenGL.framework */; };
-		B01D636C17AC63BD0061EEC4 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B01D636B17AC63BD0061EEC4 /* SDL2.framework */; };
 		B01D636F17AD2FE50061EEC4 /* graphics.c in Sources */ = {isa = PBXBuildFile; fileRef = B01D636E17AD2FE50061EEC4 /* graphics.c */; };
 		B01D637217AD902C0061EEC4 /* sprite.c in Sources */ = {isa = PBXBuildFile; fileRef = B01D637117AD902C0061EEC4 /* sprite.c */; };
 		B0495FE217B29BD100D7A5FE /* world.c in Sources */ = {isa = PBXBuildFile; fileRef = B0495FE117B29BD100D7A5FE /* world.c */; };
-		B05CE639180F3AB70030509E /* libjansson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B05CE638180F3AB70030509E /* libjansson.a */; };
+		B063F853192D48D800781E3B /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B063F852192D48D800781E3B /* libSDL2.a */; };
+		B063F855192D48DC00781E3B /* libSDL2main.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B063F854192D48DC00781E3B /* libSDL2main.a */; };
+		B063F857192D48F300781E3B /* libjansson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B063F856192D48F300781E3B /* libjansson.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,15 +47,16 @@
 		B01D636017AC4FA90061EEC4 /* Pong.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Pong.1; sourceTree = "<group>"; };
 		B01D636717AC63850061EEC4 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B01D636917AC638B0061EEC4 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		B01D636B17AC63BD0061EEC4 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		B01D636D17AD2FD60061EEC4 /* graphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = graphics.h; sourceTree = "<group>"; };
 		B01D636E17AD2FE50061EEC4 /* graphics.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = graphics.c; sourceTree = "<group>"; };
 		B01D637017AD8B2A0061EEC4 /* sprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sprite.h; sourceTree = "<group>"; };
 		B01D637117AD902C0061EEC4 /* sprite.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sprite.c; sourceTree = "<group>"; };
 		B01D637317AD90420061EEC4 /* math.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = math.h; sourceTree = "<group>"; };
-		B0495FE017B29BC700D7A5FE /* world.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = world.h; sourceTree = "<group>"; };
+		B0495FE017B29BC700D7A5FE /* world.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = world.h; sourceTree = "<group>"; tabWidth = 4; };
 		B0495FE117B29BD100D7A5FE /* world.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = world.c; sourceTree = "<group>"; };
-		B05CE638180F3AB70030509E /* libjansson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjansson.a; path = ../../../../../usr/local/Cellar/jansson/2.4/lib/libjansson.a; sourceTree = "<group>"; };
+		B063F852192D48D800781E3B /* libSDL2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2.a; path = ../../../../../usr/local/Cellar/sdl2/2.0.2/lib/libSDL2.a; sourceTree = "<group>"; };
+		B063F854192D48DC00781E3B /* libSDL2main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2main.a; path = ../../../../../usr/local/Cellar/sdl2/2.0.2/lib/libSDL2main.a; sourceTree = "<group>"; };
+		B063F856192D48F300781E3B /* libjansson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjansson.a; path = ../../../../../usr/local/Cellar/jansson/2.5/lib/libjansson.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +66,9 @@
 			files = (
 				B01D636A17AC638B0061EEC4 /* OpenGL.framework in Frameworks */,
 				B01D636817AC63850061EEC4 /* Cocoa.framework in Frameworks */,
-				B01D636C17AC63BD0061EEC4 /* SDL2.framework in Frameworks */,
-				B05CE639180F3AB70030509E /* libjansson.a in Frameworks */,
+				B063F853192D48D800781E3B /* libSDL2.a in Frameworks */,
+				B063F855192D48DC00781E3B /* libSDL2main.a in Frameworks */,
+				B063F857192D48F300781E3B /* libjansson.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,8 +78,9 @@
 		B01D635217AC4FA90061EEC4 = {
 			isa = PBXGroup;
 			children = (
-				B05CE638180F3AB70030509E /* libjansson.a */,
-				B01D636B17AC63BD0061EEC4 /* SDL2.framework */,
+				B063F856192D48F300781E3B /* libjansson.a */,
+				B063F854192D48DC00781E3B /* libSDL2main.a */,
+				B063F852192D48D800781E3B /* libSDL2.a */,
 				B01D636917AC638B0061EEC4 /* OpenGL.framework */,
 				B01D636717AC63850061EEC4 /* Cocoa.framework */,
 				B01D635D17AC4FA90061EEC4 /* Pong */,
@@ -239,11 +243,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Frameworks\"",
+					/Library/Frameworks,
 				);
-				HEADER_SEARCH_PATHS = /usr/local/Cellar/jansson/2.4/include;
+				HEADER_SEARCH_PATHS = /usr/local/Cellar/jansson/2.5/include;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/usr/local/Cellar/jansson/2.4/lib,
+					/usr/local/Cellar/jansson/2.5/lib,
+					/usr/local/Cellar/sdl2/2.0.2/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -255,11 +261,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Frameworks\"",
+					/Library/Frameworks,
 				);
-				HEADER_SEARCH_PATHS = /usr/local/Cellar/jansson/2.4/include;
+				HEADER_SEARCH_PATHS = /usr/local/Cellar/jansson/2.5/include;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/usr/local/Cellar/jansson/2.4/lib,
+					/usr/local/Cellar/jansson/2.5/lib,
+					/usr/local/Cellar/sdl2/2.0.2/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
