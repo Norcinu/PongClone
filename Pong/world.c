@@ -17,15 +17,24 @@
 
 struct entity *entities[MAX_ENTITIES];
 
-char* read_file(char* filename);
+char* read_file(const char* filename);
+
+#ifdef _WIN32
+	const char *file_name = "../../../Pong/data/config.json";
+#else
+	const char *file_name = "/Users/steven/Documents/code/PongClone/Pong/data/config.json";
+#endif
+
 
 void world_init()
 {
 	size_t i = 0;
 	char *text;
-	json_t *root;
+	json_t *root, *ar;
 	json_error_t error;
-	text = read_file("/Users/steven/Documents/code/PongClone/Pong/data/config.json");
+
+
+	text = read_file(file_name);
 	if (!text)
 		return;
 	
@@ -39,7 +48,7 @@ void world_init()
 
     free(text);
 	
-	json_t *ar = json_object_get(root, "entities");
+	ar = json_object_get(root, "entities");
 	if (!json_is_array(ar)) {
 		fprintf(stderr, "error: root is not an array\n");
 		json_decref(root);
@@ -49,6 +58,8 @@ void world_init()
     for (i = 0; i < json_array_size(ar); i++) {
 		json_t *entity;
 		json_t *name, *x, *y, *gid, *height, *width;
+		int h, w;
+		
 		entity = json_array_get(ar, i);
 		if (!json_is_object(entity)) {
 			fprintf(stderr, "error: not object\n");
@@ -58,7 +69,6 @@ void world_init()
 			entities[i]->active = 1;
 		}
             
-		
         name = json_object_get(entity, "name");
         if (!json_is_string(name)) {
             json_decref(name);
@@ -70,8 +80,8 @@ void world_init()
 		
         height = json_object_get(entity, "height");
         width = json_object_get(entity, "width");
-        int h = (int)json_integer_value(height);
-        int w = (int)json_integer_value(width);
+        h = (int)json_integer_value(height);
+        w = (int)json_integer_value(width);
         set_vector2(entities[i]->dimension, w, h);
         
         x = json_object_get(entity, "x");
@@ -105,21 +115,24 @@ void world_shutdown()
 }
 							
 // move to json_parser.c
-#if 0
+//#if 0
 char* read_file(char* filename)
 {
+	long int size;
+	char* content;
+
 	FILE* file = fopen(filename,"r");
 	if(file == NULL)
 		return NULL;
 	
 	fseek(file, 0, SEEK_END);
-	long int size = ftell(file);
+	size = ftell(file);
 	rewind(file);
 	
-	char* content = calloc(size + 1, 1);
+	content = (char *)calloc(size + 1, 1);
 	
 	fread(content,1,size,file);
 	
 	return content;
 }
-#endif
+//#endif

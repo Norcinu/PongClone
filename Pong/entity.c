@@ -21,7 +21,7 @@ struct entity* entity_init()
 	entity_count++;
 	sprintf(buffer, "%d", entity_count);
 	strcat(ent->name, BASE_NAME);
-	strcat(ent->name, buffer);
+	//strcat(ent->name, buffer);
 	ent->gid = 0;
 	ent->active = 0;
 	ent->position = (struct vector2*)malloc(sizeof(struct vector2));
@@ -58,6 +58,7 @@ void entity_render(struct entity *ent, double dt)
 	}
 }
 
-void entity_free(struct entity *ent) {
+void entity_free(struct entity *ent) 
+{
 	
 }
