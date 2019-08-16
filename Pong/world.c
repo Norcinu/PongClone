@@ -11,7 +11,7 @@
 #include "world.h"
 #include "entity.h"
 #include "graphics.h"
-#include "math.h"
+#include <seg_math.h>
 #include <jansson.h>
 #include "json_parser.h"
 
@@ -20,7 +20,7 @@ struct entity *entities[MAX_ENTITIES];
 char* read_file(const char* filename);
 
 #ifdef _WIN32
-	const char *file_name = "../../../Pong/data/config.json";
+	const char *file_name = "data\\config.json";
 #else
 	const char *file_name = "/Users/steven/Documents/code/PongClone/Pong/data/config.json";
 #endif
@@ -65,7 +65,6 @@ void world_init()
 			fprintf(stderr, "error: not object\n");
 			return;
 		} else {
-			//entities[i]->gid = i;
 			entities[i]->active = 1;
 		}
             
@@ -98,7 +97,7 @@ void world_update()
 		entity_update(entities[i], 0.0);
 	}
 }
-
+//http://zserge.com/jsmn.html
 void world_render()
 {
 	int i = 0;
@@ -115,7 +114,7 @@ void world_shutdown()
 }
 							
 // move to json_parser.c
-//#if 0
+#if 0
 char* read_file(char* filename)
 {
 	long int size;
@@ -135,4 +134,4 @@ char* read_file(char* filename)
 	
 	return content;
 }
-//#endif
+#endif

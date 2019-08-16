@@ -6,7 +6,9 @@
 //  Copyright (c) 2013 Steven Gleed. All rights reserved.
 //
 
+#include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "json_parser.h"
 
 //json_type get_json_type(const json_object *o) {
@@ -15,17 +17,19 @@
 
 char* read_file(char* filename)
 {
-	FILE* file = fopen(filename,"r");
-	if(file == NULL)
+	FILE* file = NULL;
+	errno_t error_code = fopen_s(&file, filename, "r");// //fopen(filename,"r");
+	if (file == NULL)
 		return NULL;
-	
+
 	fseek(file, 0, SEEK_END);
 	long int size = ftell(file);
 	rewind(file);
-	
+
 	char* content = calloc(size + 1, 1);
-	
-	fread(content,1,size,file);
-	
+
+	fread(content, 1, size, file);
+
 	return content;
+	//return NULL;
 }

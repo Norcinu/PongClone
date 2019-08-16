@@ -1,0 +1,18 @@
+[
+    {
+        "name": "background",
+        "filename": "background.bmp"
+    },
+    {
+        "name": "wall",
+        "filename": "wall.bmp"
+    },
+    {
+        "name": "paddle",
+        "filename": "paddle.bmp"
+    },
+    {
+        "name": "ball",
+        "filename": "ball.bmp"
+    }
+]

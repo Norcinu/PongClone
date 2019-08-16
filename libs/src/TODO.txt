@@ -1,0 +1,5 @@
+SEPERATE THIS INTO DIFFERENT FOLDIERS
+
+libs/state
+libs/math
+libs/etc...

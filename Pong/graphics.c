@@ -9,31 +9,31 @@
 #include <stdio.h>
 #include "graphics.h"
 #include "sprite.h"
-#include "math.h"
+#include <seg_math.h>
 
 struct sprite *sprites[MAX_SPRITES];
 static int sprite_count = 0;
 
-sbool graphics_init(const char *title, int h, int w)
+bool graphics_init(const char *title, const int h, const int w)
 {
 	int i = 0;
 	SDL_Rect screen_dimensions;
 	int mid_x = 0;
 	int mid_y = 0;
-	Uint32 render_ops = SDL_RENDERER_ACCELERATED|SDL_RENDERER_PRESENTVSYNC;
+	Uint32 render_ops = SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC;
 
 	if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
-		return 0;
+		return false;
 
 	for (; i < MAX_SPRITES; i++) {
 		sprites[i] = (struct sprite *)malloc(sizeof(struct sprite));
 	}
-	
+
 	gfx_settings = (struct gfx_context *)malloc(sizeof(struct gfx_context));
 	if (gfx_settings == NULL) {
-		return sfalse;
+		return false;
 	}
-	
+
 	SDL_GetDisplayBounds(0, &screen_dimensions);
 	mid_x = (screen_dimensions.w / 2) - (w / 2);
 	mid_y = (screen_dimensions.h / 2) - (h / 2);
@@ -42,16 +42,18 @@ sbool graphics_init(const char *title, int h, int w)
 	gfx_settings->screen_width = w;
 	gfx_settings->clear_colour = 0;
 	gfx_settings->window = SDL_CreateWindow(title, mid_x, mid_y, w, h,
-                                            SDL_WINDOW_OPENGL);
+		SDL_WINDOW_OPENGL);
 	gfx_settings->renderer = SDL_CreateRenderer(gfx_settings->window, -1,
-                                                render_ops);
+		render_ops);
 	SDL_SetRenderDrawColor(gfx_settings->renderer, 128, 129, 8, 0);
-	
+
+	//SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, 1);
+
 	for (i = 0; i < MAX_SPRITES; i++) {
-		
+
 	}
-	
-	return sfalse;
+
+	return true;
 }
 
 void graphics_begin_scene()
@@ -64,8 +66,8 @@ void graphics_draw_sprite(const int id, struct vector2 *pos, struct vector2 *dim
 	SDL_Rect r;
 	r.x = pos->x;
 	r.y = pos->y;
-    r.h = dim->y;
-    r.w = dim->x;
+	r.h = dim->y;
+	r.w = dim->x;
 	SDL_RenderCopy(gfx_settings->renderer, sprites[id]->texture, NULL, &r);
 }
 
@@ -73,27 +75,28 @@ void graphics_end_scene() {
 	SDL_RenderPresent(gfx_settings->renderer);
 }
 
-sbool graphics_add_sprite(const char *filename, int *id)
+bool graphics_add_sprite(const char *filename, int *id)
 {
 	if (sprite_count < MAX_SPRITES) {
 		SDL_Rect r;
-		struct sprite *s=(struct sprite*)malloc(sizeof(struct sprite));
+		struct sprite *s = (struct sprite*)malloc(sizeof(struct sprite));
 		SDL_Surface *surf = SDL_LoadBMP(filename);
 		if (!surf)
-			return sfalse;
+			return false;
 		s->texture = SDL_CreateTextureFromSurface(gfx_settings->renderer, surf);
 		SDL_QueryTexture(s->texture, NULL, NULL, &r.w, &r.h);
 		s->width = r.w;
 		s->height = r.h;
-		
+
 		SDL_FreeSurface(surf);
 		sprites[sprite_count] = s;
 		sprite_count++;
-		return strue;
-	} else {
-		printf ("Sprite container full. Delete for more space\n");
-		printf ("MAX_SPRITES = %d\n", MAX_SPRITES);
-		return sfalse;
+		return true;
+	}
+	else {
+		printf("Sprite container full. Delete for more space\n");
+		printf("MAX_SPRITES = %d\n", MAX_SPRITES);
+		return false;
 	}
 }
 
@@ -104,12 +107,12 @@ void graphics_remove_sprite(const int id)
 
 void graphics_set_screen_size(const int h, const int w)
 {
-	
+
 }
 
 void graphics_set_screen_clear_colour(int r, int g, int b, int a)
 {
-	
+
 }
 
 void graphics_shutdown()

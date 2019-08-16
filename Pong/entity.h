@@ -20,7 +20,7 @@ struct entity {
 	int active;
 	struct vector2 *position;
 	struct vector2 *prev_position;
-    struct vector2 *dimension;
+	struct vector2 *dimension;
 	char name[20];
 };
 

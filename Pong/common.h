@@ -11,10 +11,10 @@
 
 #ifdef _WIN32
 #ifdef _DEBUG
-#define SPRITE_BACKGROUND "../../../Pong/bmp/background.bmp"
-#define SPRITE_BALL "../../../Pong/bmp/ball.bmp"
-#define SPRITE_PADDLE "../../../Pong/bmp/paddle.bmp"
-#define SPRITE_WALL "../../../Pong/bmp/wall.bmp"
+#define SPRITE_BACKGROUND "bmp\\background.bmp"
+#define SPRITE_BALL "bmp\\ball.bmp"
+#define SPRITE_PADDLE "bmp\\paddle.bmp"
+#define SPRITE_WALL "bmp\\wall.bmp"
 #else
 #define SPRITE_BACKGROUND "./bmp/background.bmp"
 #define SPRITE_BALL "./bmp/ball.bmp"
@@ -28,9 +28,12 @@
 #define SPRITE_WALL "/Users/steven/Documents/code/PongClone/Pong/bmp/wall.bmp"
 #endif
 
-typedef int sbool;
+#include <stdbool.h>
+#include <stdint.h>
 
-#define sfalse 0
-#define strue  1
-
+/*
+typedef int bool;
+#define false 0
+#define true  1
+*/
 #endif
